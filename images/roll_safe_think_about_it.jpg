@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+a=new XMLHttpRequest();
+a.onload=function(){I=JSON.parse(this.responseText);if(window.initData)initData();};
+a.open('get','/ajax_get_le_data'+(window.img?'?i='+img.id:''),true);
+a.send();
+</script>
+<script>
+var _gaq=_gaq||[];
+_gaq.push(['_setAccount','UA-20041150-5']);
+_gaq.push(['_setDomainName','imgflip.com']);
+_gaq.push(['_setSiteSpeedSampleRate',5]);
+_gaq.push(['_trackPageview']);
+(function(d){
+var ga=d.createElement('script');ga.type='text/javascript';ga.async=true;
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+var s=d.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga,s);
+})(document);
+pwidget_config={publisherKey:"tfb13777dir6080pclj5",gaTrackEvents:!0,gaTrackSocialInteractions:!0,onshare:function(){doneshare=1},copypaste:!1,shareQuote:!1};
+(function(d){
+var s=d.createElement('script');s.async=!0;
+s.src='//s.po.st/static/v3/post-widget.js#init=lazy';
+var x=d.getElementsByTagName('script')[0];
+x.parentNode.insertBefore(s,x);
+})(document);
+version=688;
+spriteNum=2226;
+IMAGE_DOMAIN='//i.imgflip.com/';
+STATIC_DOMAIN='//s.imgflip.com/';
+mm=0;
+disable_rc=1;
+</script>
+<style>
+.imgflip-banner-top{width:320px;height:50px;vertical-align:top;}
+@media(min-width:500px){.imgflip-banner-top{width:468px;height:60px;}}
+@media(min-width:760px){.imgflip-banner-top{width:728px;height:90px;}}
+</style>
+<link rel="icon" href="/favicon.ico?b" />
+<link rel="icon" sizes="128x128" href="/apple-touch-icon.png" />
+<link rel='stylesheet' href='//s.imgflip.com/v688/style.css' media='screen' />
+<title>Roll Safe Think About It Memes - Imgflip</title>
+<meta name="description" content="Browse and add captions to Roll Safe Think About It memes" />
+<meta name="keywords" content="Roll Safe Think About It,meme,funny,caption" />
+<link rel='stylesheet' href='//s.imgflip.com/v688/base.css' media='screen' /><style>
+	.recaption {
+		margin: 0 10px 0 0;
+	}
+	.meme-link {
+		margin: 20px 0 0;
+		display: block;
+	}
+	.meme-link img {
+		width: 260px;
+	}
+	.alt-names {
+		margin: 0 0 20px;
+		font-size: 12px;
+	}
+	#meme-captions-chart-wrap {
+		margin-top: 20px;
+	}
+	#meme-captions-chart {
+		height: 150px;
+	}
+	@media all and (max-width: 1100px), screen and (-webkit-device-pixel-ratio: 1.5) {
+		#base-right {
+			display: block;
+		}
+		.recaption {
+			display: inline-block;
+			vertical-align: middle;
+		}
+		.meme-link {
+			display: inline-block;
+			margin: 0;
+		}
+		.meme-link img {
+			width: auto;
+			vertical-align: middle;
+			max-width: 80px;
+			max-height: 60px;
+		}
+	    .meme-text-link {
+		    display: none;
+	    }
+		#meme-captions-chart-wrap {
+			display: inline-block;
+			vertical-align: middle;
+			position: relative;
+			margin-top: 0;
+		}
+		#meme-captions-chart-title {
+			position: absolute;
+			top: 0;
+			left: 5px;
+			z-index: 1;
+			font-size: 10px;
+		}
+		#meme-captions-chart {
+			height: 60px;
+			width: 100px;
+			bottom: -7px;
+			position: relative;
+		}
+	}
+</style>
+</head>
+<body class="gray base wide">
+<div id="panelBack">
+<div id="panel">
+<div id="miniNots" class="nt"></div>
+<a class="nav" href="/">
+<div id="logo" alt="Imgflip Logo"></div>
+</a>
+<div class="nav menu-wrap" id="nav-make">
+<div id="nav-make-inner" class="menu-btn">Create <small>▼</small></div>
+<div id="make-list" class="menu">
+<a class="make-item" href="/memegenerator" title="Meme Generator">
+<div class="iCaption ni"></div>
+Caption a Meme or Image
+</a>
+<a class="make-item" href="/gif-maker" title="Animated GIF Maker (from video, youtube, images, etc.)">
+<div class="iGif ni"></div>
+Make a GIF
+</a>
+<a class="make-item" href="/piemaker" title="Pie Chart Maker">
+<div class="iPie ni"></div>
+Make a Pie Chart
+</a>
+<a class="make-item" href="/demotivational-maker" title="Demotivational Poster Maker">
+<div class="iDemotivational ni"></div>
+Make a Demotivational
+</a>
+</div>
+</div>
+<div class="nav img-flip" id="iFlip">
+<svg width=40 height=20 class="rand-arrows" style="margin:16px 0 0">
+<g transform="scale(.3)">
+<path class="line" fill="none" stroke="#aaa" stroke-width="8" stroke-linejoin="round" d="M 22 15 l 30 0 l 10 10 m 10 10 l 10 10 l 30 0" />
+<path class="arrow" fill="#aaa" d="M 112 45 l 0 -10 l 20 10 l -20 10 l 0 -10" />
+<path class="line" fill="none" stroke="#aaa" stroke-width="8" stroke-linejoin="round" d="M 22 45 l 30 0 l 30 -30 l 30 0" />
+<path class="arrow" fill="#aaa" d="M 112 15 l 0 -10 l 20 10 l -20 10 l 0 -10" />
+</g>
+</svg>
+<div class="navTip">Flip Through Images</div>
+</div>
+<div class="nav menu-wrap" id="userTitle">
+<div id="uTitle" class="menu-btn">
+<span id="u-long"></span><small>▼</small>
+</div>
+<div id="userMenu" class="menu"></div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<div id="fb-root"></div>
+<div id="page" class="base clearfix">
+<div id="goPanel" class="clearfix">
+<div class="base-options">
+<div class="sort">
+<a class="hot on" href="/meme/Roll-Safe-Think-About-It">Hot</a
+					><a class="latest" href="/meme/Roll-Safe-Think-About-It?sort=latest">Latest</a>
+</div>
+<span class="base-toggle-main-tags">filter <small>▼</small></span>
+<div class="main-tags">
+<label class="safe-status-SFW"><input id="safe-button" type="checkbox" /> NSFW</label>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<h1 class="base-title"><a href="/memetemplates">All Memes</a> &rsaquo; Roll Safe Think About It</h1>
+<div id="base-right">
+<div class="ibox">
+<div class='alt-names'>aka: thinking black guy, black guy pointing at his head, can't blank if you don't blank, smart black dude</div> <a class="recaption l but" title="Roll Safe Think About It Meme Generator" href="/memegenerator/Roll-Safe-Think-About-It">
+<div class="icon"></div>
+<span class="recaption-text">Caption this meme</span>
+</a>
+<a class="meme-link" title="Roll Safe Think About It Blank Meme Template" href="/memetemplate/Roll-Safe-Think-About-It">
+<span class="meme-text-link">Blank Template</span>
+<img alt="Roll Safe Think About It Blank Meme Template" src="/s/meme/Roll-Safe-Think-About-It.jpg" />
+</a>
+<div id="meme-captions-chart-wrap">
+<div id="meme-captions-chart-title">Captions Over Time</div>
+<div id="meme-captions-chart"></div>
+</div>
+</div>
+</div>
+<div id="base-left" class="round">
+<div class='base-unit clearfix'>
+<h2 class='base-unit-title'><a href='/i/2e2xk6'>Just because</a></h2>
+<div class='base-img-wrap-wrap'>
+<div class='base-img-wrap' style='width:460px'>
+<a class='base-img-link' href='/i/2e2xk6' style='padding-bottom:56.304347826087%'><img class='base-img' src='//i.imgflip.com/2e2xk6.jpg' alt='Just because | I CAN MOVE THINGS WITH MY MIND LIKE, MY ARMS | image tagged in memes,roll safe think about it,funny,mind control,beer | made w/ Imgflip meme maker' /></a>
+</div>
+</div>
+<div class='base-info'>
+<div class='base-author'>by <a class='u-username' href='/user/clues_gophered'>clues_gophered</a><div data-iid='144583782' class='img-flag'><div class='img-flag-top'></div><div class='img-flag-bottom'></div></div></div>
+<div class='base-view-count'>1,258 views, 18 upvotes, 2 comments</div>
+<div class='base-vote clearfix'>
+<div class='base-share'>
+<div class='pw pw-widget ra1-pw-classicWidget ra1-pw_size_large pw-layout-horizontal' pw:image='https://i.imgflip.com/2e2xk6.jpg' pw:url='https://imgflip.com/i/2e2xk6' pw:title='Just because' pw:twitter-via='imgflip'>
+<a class='pw-button-facebook'></a>
+<a class='pw-button-twitter'></a>
+<a class='pw-button-post'></a>
+</div>
+</div
+						><div class='but img-up -up' onclick='vote(144583782, 1, this.parentNode)'></div
+						><div class='but img-down -down' onclick='vote(144583782, 0, this.parentNode)'></div>
+</div>
+</div></div>
+<div class='base-unit clearfix'>
+<h2 class='base-unit-title'><a href='/i/2e4pks'>Square Root ?</a></h2>
+<div class='base-img-wrap-wrap'>
+<div class='base-img-wrap' style='width:460px'>
+<a class='base-img-link' href='/i/2e4pks' style='padding-bottom:56.304347826087%'><img class='base-img' src='//i.imgflip.com/2e4pks.jpg' alt='Square Root ? | IF YOU PUT ROOT BEER IN A SQUARE CUP, DO YOU GET BEER? YOU SMART PEOPLE JUST GRINNED - DIDN&#039;T YOU? | image tagged in memes,roll safe think about it,funny,math | made w/ Imgflip meme maker' /></a>
+</div>
+</div>
+<div class='base-info'>
+<div class='base-author'>by <a class='u-username' href='/user/clues_gophered'>clues_gophered</a><div data-iid='144666748' class='img-flag'><div class='img-flag-top'></div><div class='img-flag-bottom'></div></div></div>
+<div class='base-view-count'>257 views, 6 upvotes, 4 comments</div>
+<div class='base-vote clearfix'>
+<div class='base-share'>
+<div class='pw pw-widget ra1-pw-classicWidget ra1-pw_size_large pw-layout-horizontal' pw:image='https://i.imgflip.com/2e4pks.jpg' pw:url='https://imgflip.com/i/2e4pks' pw:title='Square Root ?' pw:twitter-via='imgflip'>
+<a class='pw-button-facebook'></a>
+<a class='pw-button-twitter'></a>
+<a class='pw-button-post'></a>
+</div>
+</div
+						><div class='but img-up -up' onclick='vote(144666748, 1, this.parentNode)'></div
+						><div class='but img-down -down' onclick='vote(144666748, 0, this.parentNode)'></div>
+</div>
+</div></div>
+<div class='base-unit clearfix'>
+<h2 class='base-unit-title'><a href='/i/2e4u4h'>Hey feminists, I&#039;m talking to you!</a></h2>
+<div class='base-img-wrap-wrap'>
+<div class='base-img-wrap' style='width:460px'>
+<a class='base-img-link' href='/i/2e4u4h' style='padding-bottom:56.304347826087%'><img class='base-img' src='//i.imgflip.com/2e4u4h.jpg' alt='Hey feminists, I&#039;m talking to you! | IF YOU THINK MEAT IS &quot;MURDER&quot; BUT ABORTION ISN&#039;T THEN YOU OFFICIALLY SUCK | image tagged in memes,roll safe think about it,funny,abortion,feminists,hypocrisy | made w/ Imgflip meme maker' /></a>
+</div>
+</div>
+<div class='base-info'>
+<div class='base-author'>by <a class='u-username' href='/user/Solarian'>Solarian</a><div data-iid='144672641' class='img-flag'><div class='img-flag-top'></div><div class='img-flag-bottom'></div></div></div>
+<div class='base-view-count'>206 views, 4 upvotes, 3 comments</div>
+<div class='base-vote clearfix'>
+<div class='base-share'>
+<div class='pw pw-widget ra1-pw-classicWidget ra1-pw_size_large pw-layout-horizontal' pw:image='https://i.imgflip.com/2e4u4h.jpg' pw:url='https://imgflip.com/i/2e4u4h' pw:title='Hey feminists, I&#039;m talking to you!' pw:twitter-via='imgflip'>
+<a class='pw-button-facebook'></a>
+<a class='pw-button-twitter'></a>
+<a class='pw-button-post'></a>
+</div>
+</div
+						><div class='but img-up -up' onclick='vote(144672641, 1, this.parentNode)'></div
+						><div class='but img-down -down' onclick='vote(144672641, 0, this.parentNode)'></div>
+</div>
+</div></div>
+<div class='base-unit clearfix'>
+<h2 class='base-unit-title'><a href='/i/2e06b3'>The truth</a></h2>
+<div class='base-img-wrap-wrap'>
+<div class='base-img-wrap' style='width:460px'>
+<a class='base-img-link' href='/i/2e06b3' style='padding-bottom:56.304347826087%'><img class='base-img' src='//i.imgflip.com/2e06b3.jpg' alt='The truth | FOX NEWS IS FAKE SINCE THERE IS NO NEWS ABOUT FOXES IN IT | image tagged in memes,roll safe think about it | made w/ Imgflip meme maker' /></a>
+</div>
+</div>
+<div class='base-info'>
+<div class='base-author'>by <a class='u-username' href='/user/Dat_Peep'>Dat_Peep</a><div data-iid='144455151' class='img-flag'><div class='img-flag-top'></div><div class='img-flag-bottom'></div></div></div>
+<div class='base-view-count'>2,561 views, 29 upvotes, 2 comments</div>
+<div class='base-vote clearfix'>
+<div class='base-share'>
+<div class='pw pw-widget ra1-pw-classicWidget ra1-pw_size_large pw-layout-horizontal' pw:image='https://i.imgflip.com/2e06b3.jpg' pw:url='https://imgflip.com/i/2e06b3' pw:title='The truth' pw:twitter-via='imgflip'>
+<a class='pw-button-facebook'></a>
+<a class='pw-button-twitter'></a>
+<a class='pw-button-post'></a>
+</div>
+</div
+						><div class='but img-up -up' onclick='vote(144455151, 1, this.parentNode)'></div
+						><div class='but img-down -down' onclick='vote(144455151, 0, this.parentNode)'></div>
+</div>
+</div></div>
+<div class='base-unit clearfix'>
+<h2 class='base-unit-title'><a href='/i/2e4n8t'>And Speaking of Fruit</a></h2>
+<div class='base-img-wrap-wrap'>
+<div class='base-img-wrap' style='width:460px'>
+<a class='base-img-link' href='/i/2e4n8t' style='padding-bottom:56.304347826087%'><img class='base-img' src='//i.imgflip.com/2e4n8t.jpg' alt='And Speaking of Fruit | WHY IS THERE A THING CALLED A GRAPEFRUIT WHEN THERE&#039;S A FRUIT CALLED A GRAPE? | image tagged in memes,roll safe think about it | made w/ Imgflip meme maker' /></a>
+</div>
+</div>
+<div class='base-info'>
+<div class='base-author'>by <a class='u-username' href='/user/nottaBot'>nottaBot</a><div data-iid='144663725' class='img-flag'><div class='img-flag-top'></div><div class='img-flag-bottom'></div></div></div>
+<div class='base-view-count'>134 views, 3 upvotes, 1 comment</div>
+<div class='base-vote clearfix'>
+<div class='base-share'>
+<div class='pw pw-widget ra1-pw-classicWidget ra1-pw_size_large pw-layout-horizontal' pw:image='https://i.imgflip.com/2e4n8t.jpg' pw:url='https://imgflip.com/i/2e4n8t' pw:title='And Speaking of Fruit' pw:twitter-via='imgflip'>
+<a class='pw-button-facebook'></a>
+<a class='pw-button-twitter'></a>
+<a class='pw-button-post'></a>
+</div>
+</div
+						><div class='but img-up -up' onclick='vote(144663725, 1, this.parentNode)'></div
+						><div class='but img-down -down' onclick='vote(144663725, 0, this.parentNode)'></div>
+</div>
+</div></div>
+<div class='base-unit clearfix'>
+<h2 class='base-unit-title'><a href='/i/2e48j8'>Roll Safe Think About It</a></h2>
+<div class='base-img-wrap-wrap'>
+<div class='base-img-wrap' style='width:460px'>
+<a class='base-img-link' href='/i/2e48j8' style='padding-bottom:56.304347826087%'><noscript><img class='base-img' src='//i.imgflip.com/2e48j8.jpg' alt='Roll Safe Think About It | OBAMA WAS PRESIDENT WHEN THE RUSSIANS WE&#039;RE HACKING | image tagged in memes,roll safe think about it | made w/ Imgflip meme maker'/></noscript><div class='base-img' data-src='//i.imgflip.com/2e48j8.jpg' data-alt='Roll Safe Think About It | OBAMA WAS PRESIDENT WHEN THE RUSSIANS WE&#039;RE HACKING | image tagged in memes,roll safe think about it | made w/ Imgflip meme maker' style='width:460px;height:259px'></div></a>
+</div>
+</div>
+<div class='base-info'>
+<div class='base-author'>by <a class='u-username' href='/user/Bucky501'>Bucky501</a><div data-iid='144644660' class='img-flag'><div class='img-flag-top'></div><div class='img-flag-bottom'></div></div></div>
+<div class='base-view-count'>206 views, 5 upvotes</div>
+<div class='base-vote clearfix'>
+<div class='base-share'>
+<div class='pw pw-widget ra1-pw-classicWidget ra1-pw_size_large pw-layout-horizontal' pw:image='https://i.imgflip.com/2e48j8.jpg' pw:url='https://imgflip.com/i/2e48j8' pw:title='Roll Safe Think About It' pw:twitter-via='imgflip'>
+<a class='pw-button-facebook'></a>
+<a class='pw-button-twitter'></a>
+<a class='pw-button-post'></a>
+</div>
+</div
+						><div class='but img-up -up' onclick='vote(144644660, 1, this.parentNode)'></div
+						><div class='but img-down -down' onclick='vote(144644660, 0, this.parentNode)'></div>
+</div>
+</div></div>
+<div class='base-unit clearfix'>
+<h2 class='base-unit-title'><a href='/i/2dspn6'>Roll Safe Think About It</a></h2>
+<div class='base-img-wrap-wrap'>
+<div class='base-img-wrap' style='width:460px'>
+<a class='base-img-link' href='/i/2dspn6' style='padding-bottom:56.304347826087%'><noscript><img class='base-img' src='//i.imgflip.com/2dspn6.jpg' alt='Roll Safe Think About It | I CHANGED ALL MY PASSWORDS TO &quot;INCORRECT&quot; SO WHEN I FROGET MY PASSWORD IT WILL SAY &quot;YOUR PASSWORD IS &quot;INCORRECT&quot; | image tagged in memes,roll safe think about it | made w/ Imgflip meme maker'/></noscript><div class='base-img' data-src='//i.imgflip.com/2dspn6.jpg' data-alt='Roll Safe Think About It | I CHANGED ALL MY PASSWORDS TO &quot;INCORRECT&quot; SO WHEN I FROGET MY PASSWORD IT WILL SAY &quot;YOUR PASSWORD IS &quot;INCORRECT&quot; | image tagged in memes,roll safe think about it | made w/ Imgflip meme maker' style='width:460px;height:259px'></div></a>
+</div>
+</div>
+<div class='base-info'>
+<div class='base-author'>by <a class='u-username' href='/user/DankMemeSimulator'>DankMemeSimulator</a><div data-iid='144106962' class='img-flag'><div class='img-flag-top'></div><div class='img-flag-bottom'></div></div></div>
+<div class='base-view-count'>6,233 views, 75 upvotes, 16 comments</div>
+<div class='base-vote clearfix'>
+<div class='base-share'>
+<div class='pw pw-widget ra1-pw-classicWidget ra1-pw_size_large pw-layout-horizontal' pw:image='https://i.imgflip.com/2dspn6.jpg' pw:url='https://imgflip.com/i/2dspn6' pw:title='Roll Safe Think About It' pw:twitter-via='imgflip'>
+<a class='pw-button-facebook'></a>
+<a class='pw-button-twitter'></a>
+<a class='pw-button-post'></a>
+</div>
+</div
+						><div class='but img-up -up' onclick='vote(144106962, 1, this.parentNode)'></div
+						><div class='but img-down -down' onclick='vote(144106962, 0, this.parentNode)'></div>
+</div>
+</div></div>
+<div class='base-unit clearfix'>
+<h2 class='base-unit-title'><a href='/i/2e5j19'>Roll Safe Think About It</a></h2>
+<div class='base-img-wrap-wrap'>
+<div class='base-img-wrap' style='width:460px'>
+<a class='base-img-link' href='/i/2e5j19' style='padding-bottom:56.304347826087%'><noscript><img class='base-img' src='//i.imgflip.com/2e5j19.jpg' alt='Roll Safe Think About It | MAYBE IF WE TELL PEOPLE THE BRAIN IS AN APP THEY&#039;LL ACTUALLY USE IT FOR SOMETHING | image tagged in memes,roll safe think about it | made w/ Imgflip meme maker'/></noscript><div class='base-img' data-src='//i.imgflip.com/2e5j19.jpg' data-alt='Roll Safe Think About It | MAYBE IF WE TELL PEOPLE THE BRAIN IS AN APP THEY&#039;LL ACTUALLY USE IT FOR SOMETHING | image tagged in memes,roll safe think about it | made w/ Imgflip meme maker' style='width:460px;height:259px'></div></a>
+</div>
+</div>
+<div class='base-info'>
+<div class='base-author'>by <a class='u-username' href='/user/LandenBradley'>LandenBradley</a><div data-iid='144704925' class='img-flag'><div class='img-flag-top'></div><div class='img-flag-bottom'></div></div></div>
+<div class='base-view-count'>47 views, 3 upvotes</div>
+<div class='base-vote clearfix'>
+<div class='base-share'>
+<div class='pw pw-widget ra1-pw-classicWidget ra1-pw_size_large pw-layout-horizontal' pw:image='https://i.imgflip.com/2e5j19.jpg' pw:url='https://imgflip.com/i/2e5j19' pw:title='Roll Safe Think About It' pw:twitter-via='imgflip'>
+<a class='pw-button-facebook'></a>
+<a class='pw-button-twitter'></a>
+<a class='pw-button-post'></a>
+</div>
+</div
+						><div class='but img-up -up' onclick='vote(144704925, 1, this.parentNode)'></div
+						><div class='but img-down -down' onclick='vote(144704925, 0, this.parentNode)'></div>
+</div>
+</div></div>
+<div class='base-unit clearfix'>
+<h2 class='base-unit-title'><a href='/i/2dlpmj'>Roll Safe Think About It</a></h2>
+<div class='base-img-wrap-wrap'>
+<div class='base-img-wrap' style='width:460px'>
+<a class='base-img-link' href='/i/2dlpmj' style='padding-bottom:56.304347826087%'><noscript><img class='base-img' src='//i.imgflip.com/2dlpmj.jpg' alt='Roll Safe Think About It | NEVER LAUGH AT YOUR GIRLFRIEND&#039;S CHOICES REMEMBER, YOU&#039;RE ONE OF THEM. | image tagged in memes,roll safe think about it | made w/ Imgflip meme maker'/></noscript><div class='base-img' data-src='//i.imgflip.com/2dlpmj.jpg' data-alt='Roll Safe Think About It | NEVER LAUGH AT YOUR GIRLFRIEND&#039;S CHOICES REMEMBER, YOU&#039;RE ONE OF THEM. | image tagged in memes,roll safe think about it | made w/ Imgflip meme maker' style='width:460px;height:259px'></div></a>
+</div>
+</div>
+<div class='base-info'>
+<div class='base-author'>by <a class='u-username' href='/user/capt6550'>capt6550</a><div data-iid='143780347' class='img-flag'><div class='img-flag-top'></div><div class='img-flag-bottom'></div></div></div>
+<div class='base-view-count'>17,303 views, 136 upvotes, 20 comments</div>
+<div class='base-vote clearfix'>
+<div class='base-share'>
+<div class='pw pw-widget ra1-pw-classicWidget ra1-pw_size_large pw-layout-horizontal' pw:image='https://i.imgflip.com/2dlpmj.jpg' pw:url='https://imgflip.com/i/2dlpmj' pw:title='Roll Safe Think About It' pw:twitter-via='imgflip'>
+<a class='pw-button-facebook'></a>
+<a class='pw-button-twitter'></a>
+<a class='pw-button-post'></a>
+</div>
+</div
+						><div class='but img-up -up' onclick='vote(143780347, 1, this.parentNode)'></div
+						><div class='but img-down -down' onclick='vote(143780347, 0, this.parentNode)'></div>
+</div>
+</div></div>
+<div class='base-unit clearfix'>
+<h2 class='base-unit-title'><a href='/i/2dk000'>Roll Safe Think About It</a></h2>
+<div class='base-img-wrap-wrap'>
+<div class='base-img-wrap' style='width:460px'>
+<a class='base-img-link' href='/i/2dk000' style='padding-bottom:56.304347826087%'><noscript><img class='base-img' src='//i.imgflip.com/2dk000.jpg' alt='Roll Safe Think About It | ENGLISH IS A GREAT LANGUAGE. I LOVE THAT &quot;TAKE OUT&quot; MEANS FOOD, DATING, AND MURDER. | image tagged in memes,roll safe think about it | made w/ Imgflip meme maker'/></noscript><div class='base-img' data-src='//i.imgflip.com/2dk000.jpg' data-alt='Roll Safe Think About It | ENGLISH IS A GREAT LANGUAGE. I LOVE THAT &quot;TAKE OUT&quot; MEANS FOOD, DATING, AND MURDER. | image tagged in memes,roll safe think about it | made w/ Imgflip meme maker' style='width:460px;height:259px'></div></a>
+</div>
+</div>
+<div class='base-info'>
+<div class='base-author'>by <a class='u-username' href='/user/capt6550'>capt6550</a><div data-iid='143700480' class='img-flag'><div class='img-flag-top'></div><div class='img-flag-bottom'></div></div></div>
+<div class='base-view-count'>9,281 views, 122 upvotes, 14 comments</div>
+<div class='base-vote clearfix'>
+<div class='base-share'>
+<div class='pw pw-widget ra1-pw-classicWidget ra1-pw_size_large pw-layout-horizontal' pw:image='https://i.imgflip.com/2dk000.jpg' pw:url='https://imgflip.com/i/2dk000' pw:title='Roll Safe Think About It' pw:twitter-via='imgflip'>
+<a class='pw-button-facebook'></a>
+<a class='pw-button-twitter'></a>
+<a class='pw-button-post'></a>
+</div>
+</div
+						><div class='but img-up -up' onclick='vote(143700480, 1, this.parentNode)'></div
+						><div class='but img-down -down' onclick='vote(143700480, 0, this.parentNode)'></div>
+</div>
+</div></div>
+<div class='base-unit clearfix'>
+<h2 class='base-unit-title'><a href='/i/2dfdpy'>Roll Safe Think About It</a></h2>
+<div class='base-img-wrap-wrap'>
+<div class='base-img-wrap' style='width:460px'>
+<a class='base-img-link' href='/i/2dfdpy' style='padding-bottom:56.304347826087%'><noscript><img class='base-img' src='//i.imgflip.com/2dfdpy.jpg' alt='Roll Safe Think About It | PEOPLE SAY &quot;FOLLOW YOUR DREAMS&quot; SO I WENT BACK TO BED | image tagged in memes,roll safe think about it | made w/ Imgflip meme maker'/></noscript><div class='base-img' data-src='//i.imgflip.com/2dfdpy.jpg' data-alt='Roll Safe Think About It | PEOPLE SAY &quot;FOLLOW YOUR DREAMS&quot; SO I WENT BACK TO BED | image tagged in memes,roll safe think about it | made w/ Imgflip meme maker' style='width:460px;height:259px'></div></a>
+</div>
+</div>
+<div class='base-info'>
+<div class='base-author'>by <a class='u-username' href='/user/capt6550'>capt6550</a><div data-iid='143484982' class='img-flag'><div class='img-flag-top'></div><div class='img-flag-bottom'></div></div></div>
+<div class='base-view-count'>11,096 views, 150 upvotes, 21 comments</div>
+<div class='base-vote clearfix'>
+<div class='base-share'>
+<div class='pw pw-widget ra1-pw-classicWidget ra1-pw_size_large pw-layout-horizontal' pw:image='https://i.imgflip.com/2dfdpy.jpg' pw:url='https://imgflip.com/i/2dfdpy' pw:title='Roll Safe Think About It' pw:twitter-via='imgflip'>
+<a class='pw-button-facebook'></a>
+<a class='pw-button-twitter'></a>
+<a class='pw-button-post'></a>
+</div>
+</div
+						><div class='but img-up -up' onclick='vote(143484982, 1, this.parentNode)'></div
+						><div class='but img-down -down' onclick='vote(143484982, 0, this.parentNode)'></div>
+</div>
+</div></div>
+<div class='base-unit clearfix'>
+<h2 class='base-unit-title'><a href='/i/2e19fq'>Roll Safe Think About It</a></h2>
+<div class='base-img-wrap-wrap'>
+<div class='base-img-wrap' style='width:460px'>
+<a class='base-img-link' href='/i/2e19fq' style='padding-bottom:56.304347826087%'><noscript><img class='base-img' src='//i.imgflip.com/2e19fq.jpg' alt='Roll Safe Think About It | YOU WON&#039;T CATCH ME WITH THOSE &quot;THEIR&quot; AND &quot;YOU&#039;RE&quot; KIND OF ERRORS &#039;CUZ A BROTHER NOWS WHAT A BROTHER NOWS | image tagged in memes,roll safe think about it | made w/ Imgflip meme maker'/></noscript><div class='base-img' data-src='//i.imgflip.com/2e19fq.jpg' data-alt='Roll Safe Think About It | YOU WON&#039;T CATCH ME WITH THOSE &quot;THEIR&quot; AND &quot;YOU&#039;RE&quot; KIND OF ERRORS &#039;CUZ A BROTHER NOWS WHAT A BROTHER NOWS | image tagged in memes,roll safe think about it | made w/ Imgflip meme maker' style='width:460px;height:259px'></div></a>
+</div>
+</div>
+<div class='base-info'>
+<div class='base-author'>by <a class='u-username' href='/user/geryd'>geryd</a><div data-iid='144505862' class='img-flag'><div class='img-flag-top'></div><div class='img-flag-bottom'></div></div></div>
+<div class='base-view-count'>424 views, 4 upvotes, 1 comment</div>
+<div class='base-vote clearfix'>
+<div class='base-share'>
+<div class='pw pw-widget ra1-pw-classicWidget ra1-pw_size_large pw-layout-horizontal' pw:image='https://i.imgflip.com/2e19fq.jpg' pw:url='https://imgflip.com/i/2e19fq' pw:title='Roll Safe Think About It' pw:twitter-via='imgflip'>
+<a class='pw-button-facebook'></a>
+<a class='pw-button-twitter'></a>
+<a class='pw-button-post'></a>
+</div>
+</div
+						><div class='but img-up -up' onclick='vote(144505862, 1, this.parentNode)'></div
+						><div class='but img-down -down' onclick='vote(144505862, 0, this.parentNode)'></div>
+</div>
+</div></div>
+<div class='base-unit clearfix'>
+<h2 class='base-unit-title'><a href='/i/2dzgy8'>Roll Safe Think About It</a></h2>
+<div class='base-img-wrap-wrap'>
+<div class='base-img-wrap' style='width:460px'>
+<a class='base-img-link' href='/i/2dzgy8' style='padding-bottom:56.304347826087%'><noscript><img class='base-img' src='//i.imgflip.com/2dzgy8.jpg' alt='Roll Safe Think About It | DID YOU KNOW? LAWNMOWERS ARE TERRIBLE METAL DETECTORS | image tagged in memes,roll safe think about it | made w/ Imgflip meme maker'/></noscript><div class='base-img' data-src='//i.imgflip.com/2dzgy8.jpg' data-alt='Roll Safe Think About It | DID YOU KNOW? LAWNMOWERS ARE TERRIBLE METAL DETECTORS | image tagged in memes,roll safe think about it | made w/ Imgflip meme maker' style='width:460px;height:259px'></div></a>
+</div>
+</div>
+<div class='base-info'>
+<div class='base-author'>by <a class='u-username' href='/user/SethMacNeal'>SethMacNeal</a><div data-iid='144422288' class='img-flag'><div class='img-flag-top'></div><div class='img-flag-bottom'></div></div></div>
+<div class='base-view-count'>656 views, 8 upvotes</div>
+<div class='base-vote clearfix'>
+<div class='base-share'>
+<div class='pw pw-widget ra1-pw-classicWidget ra1-pw_size_large pw-layout-horizontal' pw:image='https://i.imgflip.com/2dzgy8.jpg' pw:url='https://imgflip.com/i/2dzgy8' pw:title='Roll Safe Think About It' pw:twitter-via='imgflip'>
+<a class='pw-button-facebook'></a>
+<a class='pw-button-twitter'></a>
+<a class='pw-button-post'></a>
+</div>
+</div
+						><div class='but img-up -up' onclick='vote(144422288, 1, this.parentNode)'></div
+						><div class='but img-down -down' onclick='vote(144422288, 0, this.parentNode)'></div>
+</div>
+</div></div>
+<div class='base-unit clearfix'>
+<h2 class='base-unit-title'><a href='/i/2dssx2'>Roll Safe Think About It</a></h2>
+<div class='base-img-wrap-wrap'>
+<div class='base-img-wrap' style='width:460px'>
+<a class='base-img-link' href='/i/2dssx2' style='padding-bottom:56.304347826087%'><noscript><img class='base-img' src='//i.imgflip.com/2dssx2.jpg' alt='Roll Safe Think About It | DON&#039;T COMPLAIN ABOUT YOUR EMPLOYER&#039;S DECISIONS REMEMBER YOU WERE ONE OF THEM TOO | image tagged in memes,roll safe think about it | made w/ Imgflip meme maker'/></noscript><div class='base-img' data-src='//i.imgflip.com/2dssx2.jpg' data-alt='Roll Safe Think About It | DON&#039;T COMPLAIN ABOUT YOUR EMPLOYER&#039;S DECISIONS REMEMBER YOU WERE ONE OF THEM TOO | image tagged in memes,roll safe think about it | made w/ Imgflip meme maker' style='width:460px;height:259px'></div></a>
+</div>
+</div>
+<div class='base-info'>
+<div class='base-author'>by <a class='u-username' href='/user/alzwel'>alzwel</a><div data-iid='144111206' class='img-flag'><div class='img-flag-top'></div><div class='img-flag-bottom'></div></div></div>
+<div class='base-view-count'>88 views, 1 upvote</div>
+<div class='base-vote clearfix'>
+<div class='base-share'>
+<div class='pw pw-widget ra1-pw-classicWidget ra1-pw_size_large pw-layout-horizontal' pw:image='https://i.imgflip.com/2dssx2.jpg' pw:url='https://imgflip.com/i/2dssx2' pw:title='Roll Safe Think About It' pw:twitter-via='imgflip'>
+<a class='pw-button-facebook'></a>
+<a class='pw-button-twitter'></a>
+<a class='pw-button-post'></a>
+</div>
+</div
+						><div class='but img-up -up' onclick='vote(144111206, 1, this.parentNode)'></div
+						><div class='but img-down -down' onclick='vote(144111206, 0, this.parentNode)'></div>
+</div>
+</div></div><div class='pager'><div class='pager-first l but pager-disabled'>First</div><div class='pager-prev l but pager-disabled'>&lsaquo; Prev</div><a class='pager-next l but' href='/meme/Roll-Safe-Think-About-It?page=2'>Next &rsaquo;</a></div> </div>
+</div>
+<script>
+	num_images=14;
+	sfw=1;
+	captions=[["2015-08",0],["2015-09",0],["2015-10",0],["2015-11",0],["2015-12",0],["2016-01",0],["2016-02",0],["2016-03",0],["2016-04",0],["2016-05",0],["2016-06",0],["2016-07",0],["2016-08",0],["2016-09",0],["2016-10",0],["2016-11",0],["2016-12",0],["2017-01",0],["2017-02",26550],["2017-03",26250],["2017-04",16250],["2017-05",18500],["2017-06",16500],["2017-07",11350],["2017-08",13150],["2017-09",12000],["2017-10",12250],["2017-11",12150],["2017-12",13100],["2018-01",35650],["2018-02",41300],["2018-03",44750],["2018-04",39100],["2018-05",37700],["2018-06",31500]];
+</script>
+<div id="footer">
+<div id="footer-nav">
+<a href="/pro?from=footer">Imgflip Pro</a>
+<a href="/gif-maker">GIF Maker</a>
+<a href="/memegenerator">Meme Generator</a>
+<a href="/memetemplates">Blank Meme Templates</a>
+<a href="/piemaker">Pie Chart Maker</a>
+<a href="/demotivational-maker">Demotivational Maker</a>
+<a href="/image-cropper">Image Cropper</a>
+<a href="/about">About</a>
+<a href="/privacy">Privacy</a>
+<a href="/terms">Terms</a>
+<a href="//api.imgflip.com">API</a>
+<a href="/slack">Slack App</a>
+<a href="/request_removal">Request Image Removal</a>
+</div>
+<div id="findUs">
+<a id="on-fb" href="https://www.facebook.com/imgflip">Facebook</a>
+<a id="on-tw" href="https://twitter.com/imgflip">Twitter</a>
+</div>
+<div id="footline">Empowering creativity on teh interwebz<br />Imgflip LLC 2018</div>
+</div>
+<!--[if lt IE 9]>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<![endif]--><!--[if gte IE 9]><!-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<![endif]-->
+<script src='//s.imgflip.com/v688/common.js'></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		initHome();
+	});
+	google.charts.load('current', {'packages':['corechart']});
+
+	google.charts.setOnLoadCallback(drawCharts);
+
+	function drawCharts() {
+		for (var i = 0; i < captions.length; i++) {
+			var split = captions[i][0].split(/-/);
+			captions[i][0] = new Date(split[0], split[1]);
+		}
+		var data = [[{label: 'Date', type: 'date'}, {label: 'Captions', type: 'number'}]].concat(captions);
+		data = google.visualization.arrayToDataTable(data);
+		var options = {
+			chartArea: {left: 35, width: '80%'},
+			legend: 'none',
+			vAxis: {
+				viewWindow: {
+					min: 0
+				}
+			}
+		};
+		var chart = new google.visualization.LineChart($('#meme-captions-chart')[0]);
+		chart.draw(data, options);
+	}
+</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"07cc192809","applicationID":"62979520","transactionName":"MQFQZRBQXEcFBhJbCwhLZ0MLHl9RCQBIQgwW","queueTime":0,"applicationTime":14,"atts":"HUZTE1hKT0k=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
